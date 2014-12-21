@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using BanKai.Basic.Common;
 using Xunit;
 
@@ -17,10 +18,10 @@ namespace BanKai.Basic
             var defaultValueDemo = new DefaultValueDemoClass();
 
             // change the variable values of the following 2 lines to correct values
-            var expectedReferenceTypeValue = new RefTypeClass(default(int));
-            const int expectedValueTypeValue = 1;
+            var expectedReferenceTypeValue = new RefTypeClass(0);
+            const int expectedValueTypeValue = 0;
 
-            Assert.Equal(expectedReferenceTypeValue, defaultValueDemo.referenceTypeValue);
+           Assert.Equal(expectedReferenceTypeValue, defaultValueDemo.referenceTypeValue);
             Assert.Equal(expectedValueTypeValue, defaultValueDemo.valueTypeValue);
         }
 
@@ -28,9 +29,9 @@ namespace BanKai.Basic
         public void should_get_default_value_using_default_operator()
         {
             // change the variable values of the following 4 lines to correct values.
-            const int expectedDefaultIntResult = 1;
-            const bool expectedDefaultBoolResult = true;
-            const char expectedDefaultCharResult = 'a';
+            const int expectedDefaultIntResult = 0;
+            const bool expectedDefaultBoolResult = false;
+            const char expectedDefaultCharResult = '\x0';
             var expectedDefaultObjectResult = new object();
 
             Assert.Equal(expectedDefaultIntResult, default(int));
